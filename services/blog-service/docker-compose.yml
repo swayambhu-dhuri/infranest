@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: blog-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - blog-network
+
+  blog-service:
+    build: .
+    container_name: blog-service
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/blog
+    depends_on:
+      - mongodb
+    networks:
+      - blog-network
+
+volumes:
+  mongo-data:
+
+networks:
+  blog-network:
