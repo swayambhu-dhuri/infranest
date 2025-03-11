@@ -1,56 +1,66 @@
-# Blog Service (Spring Boot)
+# InfraNest: Infrastructure & System Design Learning Project
 
-This is a Spring Boot microservice designed as part of the InfraNest project, aimed at demonstrating comprehensive infrastructure and system design skills. This service provides RESTful APIs for managing blogs and integrates seamlessly with MongoDB as the database.
+InfraNest is a project aimed at learning and implementing comprehensive infrastructure and system design concepts. The focus is on building and deploying microservices using industry-standard tools and best practices.
 
 ## 🚀 Overview
 
-The Blog Service is a RESTful API built with Spring Boot, primarily focusing on basic CRUD operations to manage blog posts. This service is containerized using Docker and uses MongoDB for persistent data storage.
+Currently, the project consists of:
+
+- **Blog Service (Spring Boot)** - A microservice for managing blog posts, backed by MongoDB.
+- **(Upcoming) User Service (Django)** - Will be added later to handle user authentication and profiles.
+
+The goal is to integrate various infrastructure components like containerization, cloud deployment, API gateways, caching, monitoring, and CI/CD pipelines over time.
 
 ## 🛠️ Technology Stack
 
+### **Currently Implemented**
 - Java 21
 - Spring Boot 3.4.3
 - Spring Data MongoDB
-- Maven
 - Docker & Docker Compose
+- Maven
+
+### **Planned Additions**
+- Python (Django REST Framework) for User Service
+- PostgreSQL for relational data storage
+- Redis for caching
+- Kafka for event-driven architecture
+- Kubernetes for container orchestration
+- API Gateway for microservice routing
+- CI/CD with GitHub Actions or Jenkins
+- Cloud deployment with AWS
 
 ## 📂 Project Structure
 
 ```bash
-blog-service/
-├── src/
-│   └── main/
-│       ├── java/com/swayam/infra/blog/
-│       │   ├── controller/
-│       │   ├── service/
-│       │   ├── repository/
-│       │   └── model/
-│       └── resources/
-│           └── application.properties
-├── Dockerfile
-├── docker-compose.yml
-└── pom.xml
+Infra/
+├── services/
+│   └── blog-service/
+│       ├── src/
+│       ├── Dockerfile
+│       ├── docker-compose.yml
+│       ├── pom.xml
+│       └── README.md
+├── Readme.md (Overall project)
+└── .gitignore
 ```
 
-## ⚙️ Running Locally
+## ⚙️ Running Services
 
-### Using Docker Compose
-
+### **Running Blog Service**
 ```bash
+cd services/blog-service
 docker-compose up --build
 ```
 
-The application will be accessible at:
-
+The service will be accessible at:
 ```bash
 http://localhost:8080
 ```
 
-## 📌 API Endpoints
+## 📌 API Endpoints (Blog Service)
 
 Base URL: `http://localhost:8080/api/v1`
-
-### Blogs API
 
 | Method | Endpoint                  | Description          |
 |--------|---------------------------|----------------------|
@@ -59,3 +69,6 @@ Base URL: `http://localhost:8080/api/v1`
 | POST   | `/api/v1/blogs`           | Create a new blog    |
 | PUT    | `/api/v1/blogs/{id}`      | Update a blog        |
 | DELETE | `/api/v1/blogs/{id}`      | Delete a blog        |
+
+This document will be updated as more services and infrastructure components are added.
+
