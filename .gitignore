@@ -1,0 +1,19 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Environment files
+.env
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+
+# Logs
+*.log
+logs/
